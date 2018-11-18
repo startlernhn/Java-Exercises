@@ -7,10 +7,15 @@ import java.util.Scanner;
 
 public class ArrayExercise1 {
 	public static void main(String[] args) {
-		nhapMang();
+		double[] arr = nhapMang();
+		double min = timMinimum(arr);
+		double sum = tongSoNguyenChan(arr); //K tinh so thuc vd 2.2, 4.6
+		System.out.println("So nho nhat cua mang la: " + min);
+		System.out.println("Tong cac so chan cua mang la: " + sum);
+
 	}
 
-	private static void nhapMang() {
+	private static double[] nhapMang() {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Vui long nhap so phan tu cua mang ma ban muon khoi tao...");
@@ -20,7 +25,28 @@ public class ArrayExercise1 {
 			System.out.printf("Vui long nhap phan tu a[%d] :", i);
 			arr[i] = scanner.nextDouble();
 		}
-		System.out.printf("Mang arr[%d] = %s", count, Arrays.toString(arr));
+		System.out.printf("Mang arr[%d] = %s \n", count, Arrays.toString(arr));
+		return arr;
+	}
 
+	private static double timMinimum(double[] srcArr) {
+		double min = srcArr[0];
+		for (int i = 1; i < srcArr.length; i++) {
+			if (min > srcArr[i]) {
+				min = srcArr[i];
+			}
+		}
+		return min;
+
+	}
+
+	private static double tongSoNguyenChan(double[] srcArr) {
+		double sum = 0;
+		for (int i = 0; i < srcArr.length; i++) {
+			if (srcArr[i] % 2 == 0) {
+				sum = sum + srcArr[i];
+			}
+		}
+		return sum;
 	}
 }
