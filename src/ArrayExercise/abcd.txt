@@ -1,0 +1,2 @@
+testing copy a remote branch to a new branch, by command below:
+git checkout -b newBranch_name remote_branch
